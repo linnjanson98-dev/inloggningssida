@@ -1,5 +1,6 @@
 let formRef;
 let felmeddelande;
+let inloggad;
 const namn = "Kalle";
 const lösenord = "qwe123";
 
@@ -7,35 +8,35 @@ function init() { //initiera sidan
     formRef = document.querySelector("form");
     felmeddelande = document.getElementById("felmeddelande");
     hideElement(felmeddelande);
+    inloggad = document.getElementById("inloggad");
+    hideElement(inloggad);
     formRef.addEventListener("submit", event=>{
         event.preventDefault();
         getFormData();
-        //checkLogin() 
-    })
-    console.log(formRef);
-    console.log(username);
+        checkLogin(); 
+    }); //behövs något som kollar om användaren är inloggad eller inte
 }
 
-window.onload = init();
+window.onload = init;
 
 function getFormData(){
     let username = formRef.elements.username.value;
-    let psw = formRef.elements.psw.value;
+    let password = formRef.elements.psw.value;
     console.log(username);
-    console.log(psw);
-    checkLogin(username, psw); //kan vara utanför getForm om jag använder local storage, get item i checkLogin
+    console.log(password);
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
 }
 
-function checkLogin(user, psw){
-    //get item local storage
+function checkLogin(){
+    const user = localStorage.getItem("username");
+    const psw = localStorage.getItem("password")
+
     if (user != namn || psw != lösenord){
-        //presentera fel användarnamn 
-        //lägg till en paragraf över label? eller en alert? 
         showElement(felmeddelande);
     }
     else{
-        hideElement(formRef);
-        //gick att logga in, byter till välkommen in och en logga ut knapp
+        loggedIn();
     }
 }
 
@@ -45,4 +46,17 @@ function hideElement(element){
 
 function showElement(element){
     element.style.display = "block";
+}
+
+function loggedIn(){
+    let user = localStorage.getItem("username");
+    document.getElementById("welcomeMessage").textContent = `Välkommen ${user}, du är nu inloggad, där ${user} är ditt användarnamn`;
+    hideElement(formRef);
+    showElement(inloggad);
+    inloggad.addEventListener("submit", event=>{
+        event.preventDefault();
+        localStorage.clear();
+        showElement(formRef);
+        init();
+    })
 }
