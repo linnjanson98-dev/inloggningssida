@@ -1,56 +1,74 @@
+/* Döljer allt jag inte vill ska synas när sidan laddas in. 
+Förhindrar att elementen blinkar genom att dölja dom här och inte i JS vid start*/
+
 #felmeddelande, #inloggad, main form:first-of-type{
     display: none;
 }
 
+/* Lite röd text och centrering av felmeddelandet, gör det tydligt att man skrivit något fel */
+#felmeddelande{
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Gör en mycket enkel grid för att placera mina olika element på sidan
+    Hade nog kunnat göras utan en grid, men tyckte det var bra att öva och att
+    det ändå skulle vara att smidigt sätt att fixa med layouten.*/
 body{
     display: grid;
-    grid-template-columns: auto 70% auto;
-    grid-template-rows: 20% 10% auto auto;
-    gap: 20px;
+    grid-template-columns: 1fr 70% 1fr;
+    grid-template-rows: 20% 10% auto auto; 
     background-color: rgb(253, 246, 242);
 }
 
 header{
     grid-column: 1/4;
-    grid-row: 1/3;
+    grid-row: 1/3; /*Att ha headern på två rows med 20 och 10% blev bättre än en row på 30%, jag har inte helt lyckats bli klok på varför, men kan säkert ha något att göra med flexbox? */
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
+    border: 2px solid burlywood;
     background-color: white;;
 }
 
-
+/* Testat mig fram med overflow och object fit för att få bilden att passa i sin grid tillsammans med h1*/
 img{
     object-fit: cover;
-    overflow: auto;
+    overflow: hidden;
     max-width: 100%;
     height: auto;
-    border-bottom: 2px solid black;
-    
+    border-bottom: 2px solid burlywood;
 }
 
 h1{
     text-align: center;
     text-decoration: underline;
-    color: black;
-    margin: 10px;
+    color: burlywood;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /*Ville ha en ljust och teevlig rubrik som ändå syntes och hittade hur man kunde göra en enkel outline*/
+    margin: 5px 10px 10px 10px; 
 }
 
+/*Några små ändringar för att få rutan att se ut som jag vill*/
 main{
     grid-column: 2;
     grid-row: 3;
-    max-width: fit-content;
     margin: auto;
     padding: 20px;
     border: 2px solid burlywood;
     background-color: white;
 }
-
+/*Bara lite padding för jag tyckte det blev snyggt, och ville det skulle påverka båda forms så använde inte ID*/
+form{
+    padding: 10px 10px 20px 10px;
+}
+/* Ser till att input rutorna ligger jämte varandra*/
 label{
     display: inline-block;
     width: 100px;
 }  
 
-form{
-    padding: 10px 10px 20px 10px;
+input[type="submit"] {
+    display: block; /*Behövde göras till ett block för att kunna flytta till höger*/
+    margin-left: auto;
+    margin-top: 5px;
 }
