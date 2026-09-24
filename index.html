@@ -9,13 +9,15 @@
 </head>
 <body>
     <header> 
-        <h1>Rubrik</h1>
+        <img src="SvampletarnaBild.png" alt="Header-bild på svamp">
+        <h1>Svampletarnas föreningssida</h1>
     </header>
 
     <main>
+        <p id="felmeddelande">Felaktiga inloggningsuppgifter</p>
         <form>
-            <p id="felmeddelande">Felaktiga inloggningsuppgifter</p>
-            <label for="username">Användarnamn: </label>
+            <h2>Inloggning</h2>
+            <label for="username">Namn: </label>
             <input type="text" id="username" name="username" required><br><br>
 
             <label for="psw">Lösenord:</label>
@@ -26,7 +28,7 @@
         </form>
 
         <form id="inloggad">
-            <h2 id="welcomeMessage"></h2>
+            <h2 id="welcomeMessage"></h2><br><br>
             <input type="submit" value="Logga ut">
         </form>
 

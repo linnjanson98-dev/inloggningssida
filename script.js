@@ -7,14 +7,21 @@ const lösenord = "qwe123";
 function init() { //initiera sidan
     formRef = document.querySelector("form");
     felmeddelande = document.getElementById("felmeddelande");
-    hideElement(felmeddelande);
     inloggad = document.getElementById("inloggad");
-    hideElement(inloggad);
+
+    let user = localStorage.getItem("username");
+    if (user == namn){
+        loggedIn();
+    }
+    else{
+        showElement(formRef)
+    }
+
     formRef.addEventListener("submit", event=>{
         event.preventDefault();
         getFormData();
         checkLogin(); 
-    }); //behövs något som kollar om användaren är inloggad eller inte
+    });
 }
 
 window.onload = init;
@@ -49,6 +56,7 @@ function showElement(element){
 }
 
 function loggedIn(){
+    hideElement(felmeddelande)
     let user = localStorage.getItem("username");
     document.getElementById("welcomeMessage").textContent = `Välkommen ${user}, du är nu inloggad, där ${user} är ditt användarnamn`;
     hideElement(formRef);
@@ -56,7 +64,9 @@ function loggedIn(){
     inloggad.addEventListener("submit", event=>{
         event.preventDefault();
         localStorage.clear();
+        hideElement(inloggad)
         showElement(formRef);
+        formRef.reset();
         init();
     })
 }
