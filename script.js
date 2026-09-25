@@ -79,7 +79,7 @@ function showElement(element){
 function loggedIn(){
     hideElement(felmeddelande) //Har man skrivit fel och sen rätt inloggning så fortsatte felmeddelandet visas så jag behövde sätta en hideElement här
     let user = localStorage.getItem("username");
-    document.getElementById("welcomeMessage").textContent = `Välkommen ${user}, du är nu inloggad, där ${user} är ditt användarnamn`;
+    document.getElementById("welcomeMessage").textContent = `Välkommen ${user}, du är nu inloggad!`;
     hideElement(inloggning);
     showElement(inloggad);
     inloggad.addEventListener("submit", event=>{
