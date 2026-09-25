@@ -1,7 +1,7 @@
 /* Döljer allt jag inte vill ska synas när sidan laddas in. 
 Förhindrar att elementen blinkar genom att dölja dom här och inte i JS vid start*/
 
-#felmeddelande, #inloggad, main form:first-of-type{
+#felmeddelande, #inloggad, #inloggning{
     display: none;
 }
 
@@ -44,7 +44,7 @@ h1{
     text-align: center;
     text-decoration: underline;
     color: burlywood;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; /*Ville ha en ljust och teevlig rubrik som ändå syntes och hittade hur man kunde göra en enkel outline*/
+    text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey; /*Ville ha en ljust och trevlig rubrik som ändå syntes och hittade hur man kunde göra en enkel outline*/
     margin: 5px 10px 10px 10px; 
 }
 

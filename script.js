@@ -22,7 +22,7 @@ function init() { //initiera sidan
     }
     else{
         showElement(inloggning)
-        /*visar inloggningssidan, en visas inte direkt för den är dold i css. 
+        /*visar inloggningssidan, den visas inte direkt för den är dold i css. 
         Detta är för att elementet "blinkade" lite när man laddade in sidan om jag valde att dölja dom i init()
         Så det mesta är dolt och sen bestämmer javascript vad som visas beroende på info och interaktion*/
     }
