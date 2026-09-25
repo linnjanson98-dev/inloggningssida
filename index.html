@@ -8,6 +8,31 @@
     <title>Inloggningssida</title>
 </head>
 <body>
-    
+    <header> 
+        <img src="SvampletarnaBild.png" alt="Header-bild på svamp"> <!--Min bild till headern och sedan Sidorubriken-->
+        <h1>Svampletarnas föreningssida</h1>
+    </header>
+
+    <main>
+        <p id="felmeddelande">Felaktiga inloggningsuppgifter</p> <!--La mitt felmeddelande här för att kunna kontrollera den utanför form, 
+                                                                    gav ID ifall det kom fler <p>, men nu gjorde det inte det så hade nog kunnat skippa-->
+        <form id="inloggning"> <!--Har två stycken forms, ett för inloggning och ett för när man är inloggad så separerar dom med ID -->
+            <h2>Inloggning</h2>
+            <label for="username">Namn: </label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="psw">Lösenord:</label>
+            <input type="password" id="psw" name="psw" required><br><br>
+
+            <input type="submit" value="Logga in"> 
+
+        </form>
+        <!--Form för när man är inloggad, Välkomstmeddelandet skrivs i javascript för att kunna använda sig av det inmatade användarnamnet-->
+        <form id="inloggad">
+            <h2 id="welcomeMessage"></h2><br><br>
+            <input type="submit" value="Logga ut">
+        </form>
+
+    </main>
 </body>
 </html>
