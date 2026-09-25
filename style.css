@@ -44,7 +44,7 @@ h1{
     text-align: center;
     text-decoration: underline;
     color: burlywood;
-    text-shadow: -1px 0 darkgrey, 0 1px darkgrey, 1px 0 darkgrey, 0 -1px darkgrey; /*Ville ha en ljust och trevlig rubrik som ändå syntes och hittade hur man kunde göra en enkel outline*/
+    text-shadow: -1px 0 darkslategray, 0 1px darkslategray, 1px 0 darkslategray, 0 -1px darkslategray; /*Ville ha en ljust och trevlig rubrik som ändå syntes och hittade hur man kunde göra en enkel outline*/
     margin: 5px 10px 10px 10px; 
 }
 
